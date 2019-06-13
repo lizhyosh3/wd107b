@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>幫你算算BMI</title>
+<style type="text/css">
+
+h1 {font-family: 微軟正黑體; font-size: 40px; text-align: center;}
+h2 {font-family: 微軟正黑體; font-size: 25px; text-align: center;}
+table, th, td {border: 3px solid blue; border-collapse: collapse; padding: 15px; background-color: white; text-align: left; font-family: 微軟正黑體; font-size: 20px; font-weight:bold; color:#402cf7;}
+     
+ body
+        {
+        margin:0px;
+        padding:0px;
+        background:#fff url('https://i.pximg.net/img-original/img/2015/07/21/21/32/46/51538422_p0.jpg') right bottom fixed no-repeat;
+        }
+</style>
+</head>
+<body>
+    <h1>計算BMI</h1>
+    <h2>BMI值計算公式：BMI = 體重（公斤） / 身高<sup>2</sup>（公尺<sup>2</sup>）</h1>
+    <center>
+    <br>
+    <table>
+	<caption>數值的意義</caption>
+	<tr>
+	    <td></td>
+	    <td>BMI值(kg/m<sup>2</sup>)</td>
+	    <td>腰圍(cm)</td>
+	</tr>
+	<tr>
+	    <td>體重過輕</td>
+	    <td>BMI ＜ 18.5</td>
+	    <td>-</td>
+	</tr>
+	<tr>
+	    <td>正常範圍</td>
+	    <td>18.5≦BMI＜24</td>
+	    <td>-</td>
+	</tr>
+	<tr>
+	    <td>異常範圍</td>
+	    <td>過重：24≦BMI＜27<br>
+	        輕度肥胖：27≦BMI＜30<br>
+		中度肥胖：30≦BMI＜35<br>
+		重度肥胖：BMI≧35</td>
+	    <td>男性：≧90<br>
+		女性：≧80</td>
+	</tr>
+    </table>
+    </br>
+    </center>
+    <center>
+    身高(m)：<input type="text"  id="m" value=""><br><br>
+    體重(kg)：<input type="text"  id="kg" value=""><br><br>
+    <input type="button" value="開始計算" onClick="equal()">
+    <input type="button" value="重置計算" onClick="reset()"><br><br>
+    BMI值：<input type="text" name="height" id="bmi" value=""><br><br>
+    <input type="button" value="顯示狀態" onClick="status()">
+    </center>
+ <script>
+function equal(){
+x = document.getElementById("m").value;
+y = document.getElementById("kg").value;
+z = y/(x*x);
+document.getElementById("bmi").value = parseFloat(z.toFixed(2));
+}
+
+function reset(){
+document.getElementById("m").value="";
+document.getElementById("kg").value="";
+document.getElementById("bmi").value="";
+}
+
+
+function status(){
+if(document.getElementById("bmi").value<18.5)
+{
+    alert("體重過輕");
+}
+
+else if(document.getElementById("bmi").value<24&&document.getElementById("bmi").value>=18.5)
+{
+    alert("正常");
+}
+
+else if(document.getElementById("bmi").value>=24&&document.getElementById("bmi").value<27)
+{
+    alert("過重");
+}
+
+else if(document.getElementById("bmi").value>=27&&document.getElementById("bmi").value<30)
+{
+    alert("輕度肥胖");
+}
+
+else if(document.getElementById("bmi").value>=30&&document.getElementById("bmi").value<35)
+{
+    alert("中度肥胖");
+}
+
+else if(document.getElementById("bmi").value>=35)
+{
+    alert("重度肥胖");
+}
+}
+
+  
+   </script>
+
+</body>
+</html>
